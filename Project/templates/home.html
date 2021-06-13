@@ -1,0 +1,100 @@
+{% extends 'base.html' %}   
+
+
+        {% block content %}
+        <div>
+          <p>
+              <h2 class="text-decoration-underline fst-italic text-info">
+                  <strong>
+                      Here you guys can perform various task. This is the application which actually use some logics and machine learning techniques to resolve some real life problem.
+                  </strong>
+              </h2>
+          </p>
+      </div>
+        <div class="row m-3">
+          <div class="col-lg-6">
+            <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?dark');">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Card">
+              <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                  <small class="card-meta mb-2"><strong> TO DO System</strong></small>
+                  <h4 class="card-title mt-0 text-white">We use this for maintaing various Events and Assignments</h4>              
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Here is the link</h6>
+                      <button class="btn btn-close-white"><a href="/todo_app/get-task"> Check Tasks</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?orange');">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,mail" alt="Card">
+              <div class="card-img overlay d-flex flex-column">
+              <div class="card-body">
+                <small class="card-meta mb-2"><strong>Send Email Application </strong></small>
+                <h4 class="card-title mt-0 text-white">We use this for sending an email with Attachment</h4>              
+              </div>
+              <div class="card-footer">
+                <div class="media">
+                  <div class="media-body">
+                    <h6 class="my-0 text-white d-block">Here is the link</h6>
+                    <button class="btn btn-close-white"><a href="/send_email/send-email">Send Email </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>      
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row m-3">
+          <div class="col-sm-6">
+            <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?yellow');">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Card">
+              <div class="card-img overlay d-flex flex-column">
+              <div class="card-body">
+                <small class="card-meta mb-2">Management System</small>
+                <h4 class="card-title mt-0 text-white">We use this for maintaing various event and asignment</h4>              
+              </div>
+              <div class="card-footer">
+                <div class="media">
+                  <div class="media-body">
+                    <h6 class="my-0 text-white d-block">Here is the Link</h6>
+                    <button class="btn btn-outline-white"><a href="#">GO somewhere</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?red');">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,mail" alt="Card">
+              <div class="card-img overlay d-flex flex-column">
+              <div class="card-body">
+                <small class="card-meta mb-2"><strong>Machine Learning Application</strong> </small>
+                <h4 class="card-title mt-0 text-white">Here we can predict the fare of cab depend upon the features like No. of passenger, Date, Distance covered, Time</h4>              
+              </div>
+              <div class="card-footer">
+                <div class="media">
+                  <div class="media-body">
+                    <h6 class="my-0 text-white d-block">Here is the link</h6><br>
+                    <button class="btn btn-outline-info"><a href="/ml_model/ml_model_prediction">Predict the Price</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>      
+        </div>
+        {% endblock content %}
+    
+        
+    

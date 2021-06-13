@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row m-4">
+    <div class="col-lg-6 mx-3">
+        <div class="card text-blue" style="background-image:url('https://source.unsplash.com/600x900/?green');">
+            <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                <small class="card-meta mb-2"><strong> Machine Learning Application</strong></small>
+                <h4 class="card-title mt-0 text-white">Cab fare will be predict using Machine Learning.</h4>                              
+                <form action="result_model">
+                    {% csrf_token %}
+
+                    <div class="form-group mb-2">
+                    <input class="form-control" placeholder="No of Passenger" required type="text" name="passenger_count">
+                    </div>
+
+
+                    <div class="form-group mb-2">
+                    <input class="form-control" placeholder="date" type="date" required type="text" name="date">
+                    </div>
+
+                    <div class="form-group mb-2">
+                    <input class="form-control" placeholder="Sunday-Saturday(0-6)" required type="text" name="weekdays">
+                    </div>
+
+
+                    <div class="form-group mb-2">
+                    <input class="form-control" placeholder="Time in hour..(0-23)" type="text" required name="hour">
+                    </div>
+
+                    <div class="form-group mb-2">
+                    <input class="form-control" placeholder="Distance in kms..?" type="text" required name="trip_distance">
+                    </div>
+
+                    <input class="btn btn-primary btn-lg btn-block" type="submit" value='Predict'>
+
+                </form>
+
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Home Link</h6>
+                      <button class="btn btn-close-white"><a href="/"> Home</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+        </div>
+    </div>
+</div>
+
+{% comment %} 
+
+
+  <h1 style="color:rgb(44, 44, 90); font-weight: 700;">
+    <i class="fas fa-ship"></i> Used Car Price Prediction , Data by CarDekho.com
+  </h1>
+
+  <p style="color:rgb(51, 51, 83); font-weight: 700;">
+    Price Prediction by the help of Machine Learning techniques....
+    Used Linear Regression for best score.
+  </p>
+
+  <form action="result_model">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <input class="form-control" placeholder="No of Passenger" required type="text" name="passenger_count">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="date" type="date" required type="text" name="date">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Sunday-Saturday(0-6)" required type="text" name="weekdays">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Time in hour..(0-23)" type="text" required name="hour">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Distance in kms..?" type="text" required name="trip_distance">
+    </div>
+
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value='Predict'>
+
+  </form> {% endcomment %}
+{% endblock content %}

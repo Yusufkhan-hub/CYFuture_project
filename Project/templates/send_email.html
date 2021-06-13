@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row m-4">
+    <div class="col-lg-6 mx-3">
+        <div class="card text-blue" style="background-image:url('https://source.unsplash.com/600x900/?yellow');">
+            <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                <small class="card-meta mb-2">Django Email Attachment</small>
+                    {% if error_message %}
+                    <div class="alert alert-primary" role="alert">
+                        {{error_message}}
+                    </div>
+                    {% endif %}
+                    {% if email_form %}
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{email_form|crispy}}
+                        <button class="btn btn-success" type="submit">Send Email</button>
+                    </form>                
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Home Link</h6>
+                      <button class="btn btn-close-white"><a href="/"> Home</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}      

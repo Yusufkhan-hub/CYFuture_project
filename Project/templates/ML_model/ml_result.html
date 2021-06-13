@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row m-3">
+    <div class="col-sm-6">
+        <div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?yellow');">
+          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Card">
+          <div class="card-img overlay d-flex flex-column">
+          <div class="card-body">
+            <small class="card-meta mb-2">Predicted Price</small>
+            <h4 class="card-title mt-0 text-white">This prediction is based on Gradient Boosting Regressor with 82 percent of accuracy.</h4>
+            <h1 style=" color: rgb(88, 180, 88); font-weight: 900;">
+                <i class="fas fa-swimmer"></i> <span>&#36;{{result}}</span>
+                
+          </div>
+          <div class="card-footer">
+            <div class="media">
+              <div class="media-body">
+                <h6 class="my-0 text-white d-block">Link</h6>
+                <h3 style="color: rgb(31, 15, 15); font-weight: 100;"><a href="/ml_model/ml_model_prediction">Home</a></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+</div>
+<!-- 
+  <h1 style=" color: rgb(88, 180, 88); font-weight: 900;">
+  <i class="fas fa-swimmer"></i> {{result}}
+
+  {% comment %} {% else %} {% endcomment %}
+  {% comment %} <h1 style="color: rgb(31, 15, 15); font-weight: 900;">Predicted Amount is too low. Don't sell...</h1> {% endcomment %}
+  {% comment %} {% endif %} {% endcomment %}
+  <h3 style="color: rgb(31, 15, 15); font-weight: 100;"><a href="/ml_model/ml_model_prediction">Home</a></h1> -->
+{% endblock content %}

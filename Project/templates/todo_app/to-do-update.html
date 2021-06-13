@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row m-3">
+    <div class="col">
+        <div class="card bg-info">
+            <div class="card-body">                
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p  style="color: #d63384;">
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                    <button class="btn btn-outline-success" type="submit">Add Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-info">
+            <div class="card-body">
+                <p class="text">
+                    This is short task manager  system. In which you can define any and keet status of same. It may save your time.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

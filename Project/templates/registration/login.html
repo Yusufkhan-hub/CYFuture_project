@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row m-4">
+    <div class="col-lg-6 mx-3">
+        <div class="card text-blue" style="background-image:url('https://source.unsplash.com/600x900/?pink');">
+            <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                <small class="card-meta mb-2">Login...!!</small>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <p style="color: #0d6efd;">
+                          {{ field.label_tag }}<br>
+                          {{ field }}
+                          {% if field.help_text %}
+                            <small style="color: grey">{{ field.help_text }}</small>
+                          {% endif %}
+                          {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                          {% endfor %}
+                        </p>
+                      {% endfor %}
+                      <button class="btn btn-outline-info" type="submit">Login</button>
+                    </form>
+                &nbsp;&nbsp;<p class="text-center">Don't have an account?&nbsp;<a href="signup"><button class="btn btn-outline-primary">Sign Up</button></a></p>
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Home Link</h6>
+                      <button class="btn btn-close-white"><a href="/"> Home</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+        </div>
+    </div>
+</div>
+{% comment %} 
+<div class="container">
+  <div class="card">
+    <div class="card-header text-center" style="color: blueviolet;"><strong>LOGIN</strong></div>
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <p style="color: #0d6efd;">
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </p>
+      {% endfor %}
+      <button class="btn btn-info" type="submit">Login</button>
+    </form>
+    </div>
+    <div class="card-footer text-muted text-center">
+      <p>Don't have an account? Then <a href="{% url 'signup' %}"><button class="btn btn-info">Sign Up</button></a></p>
+    </div>
+  </div>
+
+</div> {% endcomment %}
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row m-4">
+    <div class="col-lg-6 mx-3">
+        <div class="card text-blue" style="background-image:url('https://source.unsplash.com/600x900/?green');">
+            <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                <small class="card-meta mb-2">Register Yourself</small>
+                    <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p  style="color: #0d6efd;">
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                    <button class="btn btn-outline-success" type="submit">Sign up</button>
+                </form>
+                &nbsp;&nbsp;<p class="text-center">Already have an account?&nbsp;<a href="accounts/login"><button class="btn btn-outline-primary">Login</button></a></p>
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Home Link</h6>
+                      <button class="btn btn-close-white"><a href="/"> Home</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+        </div>
+    </div>
+</div>
+{% comment %} 
+        <div class="card">
+            <div class="card-body mb-2">
+                <h4 class="text-success" >
+                <strong>
+                    Please Register yourself..
+                </strong>                
+                </h4>
+                
+            </div>
+        </div><br><hr> {% endcomment %}
+{% endblock content %}

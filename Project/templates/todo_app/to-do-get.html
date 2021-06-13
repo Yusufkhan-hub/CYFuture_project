@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row m-4">
+    <div class="col-lg-10 mx-3">
+        <div class="card text-blue" style="background-image:url('https://source.unsplash.com/600x900/?plain,white');">
+            <div class="card-img overlay d-flex flex-column">
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col">
+                        <small><strong>Tasks List</strong></small>
+                          
+                      </div>
+                      <div class="col">
+                          <button class="btn btn-outline-info" type="text"><a class="text-white" href="/todo_app/post-task"><strong>Wanna Add New Task?</strong></a></button>
+                      </div>
+                  </div>
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th class="text-center" scope="col">SNo</th>
+                      <th class="text-center" scope="col">Description</th>
+                      <th class="text-center" scope="col">Date</th>
+                      <th class="text-center" scope="col">Due Date</th>
+                      <th class="text-center" scope="col">Is Completed</th>
+                      <th class="text-center" scope="col">Category</th>
+                      <th class="text-center" scope="col">Update/Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in obj %}
+                      <tr>
+                        <th class="text-center" scope="row">{{ forloop.counter }}</th>
+                        <td class="text-center">{{ item.short_description }}</td>
+                        <td class="text-center">{{ item.date_added }}</td>
+                        <td class="text-center">{{ item.due_date }}</td>
+                        <td class="text-center">{{ item.is_completed }}</td>
+                        <td class="text-center">{{ item.category }}</td>
+                        <td class="text-center">
+                          <!-- Update book buttons -->
+                          {% comment %} <a class="btn btn-lg btn-primary" href="{% url 'to_do_app:update-task' item.id %}">Update</a>                    {% endcomment %}
+                          
+                          <!-- Delete book buttons -->
+                          {% comment %} <a class="btn btn-lg btn-danger" href="{% url 'todo_app/delete-task' item.id %}">Delete</a> {% endcomment %}
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <div class="card-footer">
+                    <div>
+                        {% if vehicle.has_previous %}
+                        <a href="{% url 'index' %}?page={{vehicle.previous_page_number}}" class="btn btn-info">Previous Page</a>
+                        {% endif %}
+                        {% if vehicle.has_next %}
+                        <a href="{% url 'index' %}?page={{vehicle.next_page_number}}" class="btn btn-info">Next Page</a>
+                        {% endif %}
+                    </div>
+                    <div class="media">
+                      <div class="media-body">
+
+                        <h6 class="my-0 text-white d-block">Home Link</h6><br>
+                        <button class="btn btn-outline-info"><a href="/"> Home</a></button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>            
+        </div>
+    </div>
+</div>
+
+{% comment %} 
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                Task List
+            </div>
+            <div class="col">
+                <button class="btn btn-info" type="text"><a href="/todo_app/post-task">Wanna Add</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+              <th class="text-center" scope="col">SNo</th>
+              <th class="text-center" scope="col">Description</th>
+              <th class="text-center" scope="col">Date</th>
+              <th class="text-center" scope="col">Due Date</th>
+              <th class="text-center" scope="col">Is Completed</th>
+              <th class="text-center" scope="col">Category</th>
+              <th class="text-center" scope="col">Update/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in obj %}
+              <tr>
+                <th class="text-center" scope="row">{{ forloop.counter }}</th>
+                <td class="text-center">{{ item.short_description }}</td>
+                <td class="text-center">{{ item.date_added }}</td>
+                <td class="text-center">{{ item.due_date }}</td>
+                <td class="text-center">{{ item.is_completed }}</td>
+                <td class="text-center">{{ item.category }}</td>
+                <td class="text-center">
+                  <!-- Update book buttons -->
+                  {% comment %} <a class="btn btn-lg btn-primary" href="{% url 'to_do_app:update-task' item.id %}">Update</a>                    {% endcomment %}
+                  
+                  <!-- Delete book buttons -->
+                  {% comment %} <a class="btn btn-lg btn-danger" href="{% url 'todo_app/delete-task' item.id %}">Delete</a> {% endcomment %}
+                {% comment %} </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <div class="card-footer">
+        <div>
+            {% if vehicle.has_previous %}
+            <a href="{% url 'index' %}?page={{vehicle.previous_page_number}}" class="btn btn-info">Previous Page</a>
+            {% endif %}
+            {% if vehicle.has_next %}
+            <a href="{% url 'index' %}?page={{vehicle.next_page_number}}" class="btn btn-info">Next Page</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+ {% endcomment %}
+
+{% endblock content %}
